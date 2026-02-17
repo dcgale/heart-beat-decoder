@@ -50,7 +50,7 @@ def preprocess(X_predict = None) -> Union[pd.DataFrame, tuple]:
     if X_predict is None:
         data = clean()
 
-        # Defining the features and the target
+        # define the features and target
         X = data.drop('type', axis=1)
         y = data['type']
 
@@ -59,16 +59,16 @@ def preprocess(X_predict = None) -> Union[pd.DataFrame, tuple]:
         y = y.map(binary_type_mapping)
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y, random_state=42)
 
-        # Scaling the data before training
+        # scale the data before training
         scaler  = MinMaxScaler()
         X_train = scaler.fit_transform(X_train)
         X_test  = scaler.transform(X_test)
 
-        # Resampling and rebalancing the data
+        # resample and rebalance the data
         smote = SMOTE(sampling_strategy='auto', random_state=42, k_neighbors=3)
         X_train_resampled, y_train_resampled = smote.fit_resample(X_train, y_train)
 
-        # Slicing to get light training memory
+        # slicing to get light training memory
         subset_size = 1000
         X_train_subsample = X_train_resampled[:subset_size]
         y_train_subsample = y_train_resampled[:subset_size]
@@ -83,7 +83,8 @@ def preprocess(X_predict = None) -> Union[pd.DataFrame, tuple]:
 
 def model() -> BaseEstimator:
     """
-    Train and save the model.
+    Train and save the model in a .pkl binary.  
+    The model was originally trained on the [ECG Heartbeat Categorization Dataset](https://www.kaggle.com/datasets/shayanfazeli/heartbeat/data).
 
     Returns:
         BaseEstimator: Trained model.
@@ -91,7 +92,7 @@ def model() -> BaseEstimator:
     """
     X_train, y_train = preprocess()
 
-    # The model and parameters
+    # the model and parameters
     model =  RandomForestClassifier(random_state=101, n_estimators=50, max_depth= None, min_samples_split= 10 , min_samples_leaf= 1)
     model.fit(X_train, y_train)
 
@@ -99,6 +100,6 @@ def model() -> BaseEstimator:
 
     with open(path, "wb") as file:
         pickle.dump(model, file)
-        print(f'saved pickle to {path}')
+        print(f'saved binary to {path}')
 
     return model
