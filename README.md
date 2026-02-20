@@ -5,8 +5,8 @@ Web app: [Heartbeat Decoder](https://ecg-heartbeat-decoder.streamlit.app/)  _(<-
 
 
 ---
-**TODO** 2026-02:
-- rewrite (missing) `app.py`, replace existing webapp
+**TODO**:
+- properly write missing `app.py` (located in external repo), replace existing webapp with correct streamlit version
 - do a big review of `src` dir (`heartbd`), emphasizing pure python over notebooks
 - clean and annotate code for clarity
 
