@@ -6,7 +6,7 @@ Web app: [Heartbeat Decoder](https://ecg-heartbeat-decoder.streamlit.app/)  _(<-
 
 ---
 **TODO**:
-- properly write missing `app.py` (located in external repo), replace existing webapp with correct streamlit version
+- merge and rewrite`app.py`, update streamlit version
 - do a big review of `src` dir (`heartbd`), emphasizing pure python over notebooks
 - ensure API works with test data
 - clean and annotate code for clarity
