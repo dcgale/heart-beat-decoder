@@ -6,10 +6,12 @@ Web app: [Heartbeat Decoder](https://ecg-heartbeat-decoder.streamlit.app/)  _(<-
 
 ---
 **TODO**:
-- merge and rewrite`app.py`, update streamlit version
-- big review of (`heartbd`)
+- commit rewritten remote code & eda notebooks
+- merge and rewrite`app.py` , update streamlit version
+- big review of `heartbd`
 - migrate to [uv](https://docs.astral.sh/uv/)
-- rewrite API request (nested classes for featureset)
-- review API response
-- ensure API works with test data
-- clean and annotate code for clarity
+- rewrite API request (nested classes for 1x32 featureset)
+- review API response; ensure API works with test data
+- containerise and run some test deployments in cloud
+- spring cleaning: annotate code for clarity
+- archive
