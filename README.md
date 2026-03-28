@@ -1,5 +1,5 @@
 ### Heartbeat Decoder
-Machine learning project classifying heart conditions based on input ECG data.
+Machine learning project classifying heart arrhythmias based on input ECG data.
 
 Web app: [Heartbeat Decoder](https://ecg-heartbeat-decoder.streamlit.app/)  _(<--- deprecated as of 2025)_
 
